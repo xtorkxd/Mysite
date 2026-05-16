@@ -1,883 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>Alan Jaison | Creative Developer</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-  scroll-behavior:smooth;
-}
-
-:root{
-  --primary:#38bdf8;
-  --secondary:#2563eb;
-  --dark:#081120;
-  --card:#111c31;
-  --light:#cbd5e1;
-  --white:#ffffff;
-}
-
-body{
-  background:var(--dark);
-  color:white;
-  overflow-x:hidden;
-  position:relative;
-}
-
-/* BACKGROUND EFFECT */
-
-body::before{
-  content:'';
-  position:fixed;
-  width:500px;
-  height:500px;
-  background:rgba(56,189,248,0.12);
-  filter:blur(120px);
-  top:-150px;
-  left:-150px;
-  z-index:-1;
-}
-
-body::after{
-  content:'';
-  position:fixed;
-  width:400px;
-  height:400px;
-  background:rgba(37,99,235,0.15);
-  filter:blur(120px);
-  right:-120px;
-  bottom:-120px;
-  z-index:-1;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-section{
-  padding:110px 8%;
-}
-
-/* NAVBAR */
-
-nav{
-  width:100%;
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 8%;
-  background:rgba(8,17,32,0.7);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,0.06);
-}
-
-.logo{
-  font-size:32px;
-  font-weight:800;
-  color:var(--primary);
-  letter-spacing:1px;
-}
-
-nav ul{
-  display:flex;
-  gap:30px;
-  list-style:none;
-}
-
-nav ul li a{
-  position:relative;
-  font-weight:500;
-  transition:0.3s;
-}
-
-nav ul li a::after{
-  content:'';
-  position:absolute;
-  width:0%;
-  height:2px;
-  background:var(--primary);
-  left:0;
-  bottom:-6px;
-  transition:0.3s;
-}
-
-nav ul li a:hover{
-  color:var(--primary);
-}
-
-nav ul li a:hover::after{
-  width:100%;
-}
-
-/* HERO */
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:60px;
-  flex-wrap:wrap;
-  position:relative;
-}
-
-.hero-text{
-  flex:1;
-  min-width:320px;
-}
-
-.hero-tag{
-  display:inline-block;
-  padding:10px 20px;
-  background:rgba(56,189,248,0.12);
-  border:1px solid rgba(56,189,248,0.3);
-  color:var(--primary);
-  border-radius:50px;
-  margin-bottom:25px;
-  font-size:14px;
-  font-weight:600;
-}
-
-.hero-text h1{
-  font-size:72px;
-  line-height:1.15;
-  margin-bottom:25px;
-}
-
-.hero-text h1 span{
-  color:var(--primary);
-}
-
-.hero-text p{
-  font-size:18px;
-  color:var(--light);
-  line-height:1.9;
-  max-width:650px;
-  margin-bottom:40px;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  padding:16px 34px;
-  border-radius:16px;
-  font-weight:600;
-  transition:0.35s;
-}
-
-.primary-btn{
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:white;
-  box-shadow:0 15px 35px rgba(56,189,248,0.3);
-}
-
-.primary-btn:hover{
-  transform:translateY(-6px);
-}
-
-.secondary-btn{
-  border:1px solid rgba(255,255,255,0.12);
-  background:rgba(255,255,255,0.04);
-}
-
-.secondary-btn:hover{
-  background:rgba(255,255,255,0.08);
-}
-
-/* HERO IMAGE */
-
-.hero-image{
-  flex:1;
-  min-width:300px;
-  display:flex;
-  justify-content:center;
-}
-
-.glass-circle{
-  width:380px;
-  height:380px;
-  border-radius:50%;
-  background:linear-gradient(
-  135deg,
-  rgba(56,189,248,0.4),
-  rgba(37,99,235,0.3)
-  );
-
-  border:1px solid rgba(255,255,255,0.15);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  box-shadow:
-  0 20px 80px rgba(56,189,248,0.2),
-  inset 0 0 60px rgba(255,255,255,0.06);
-
-  backdrop-filter:blur(20px);
-
-  animation:float 5s ease-in-out infinite;
-}
-
-.glass-circle h2{
-  font-size:110px;
-  color:white;
-  letter-spacing:4px;
-}
-
-@keyframes float{
-
-  0%{
-    transform:translateY(0px);
-  }
-
-  50%{
-    transform:translateY(-18px);
-  }
-
-  100%{
-    transform:translateY(0px);
-  }
-
-}
-
-/* STATS */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:25px;
-  margin-top:60px;
-}
-
-.stat-card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:24px;
-  padding:30px;
-  text-align:center;
-  backdrop-filter:blur(10px);
-}
-
-.stat-card h2{
-  color:var(--primary);
-  font-size:40px;
-  margin-bottom:10px;
-}
-
-.stat-card p{
-  color:var(--light);
-}
-
-/* SECTION TITLE */
-
-.section-title{
-  text-align:center;
-  font-size:48px;
-  margin-bottom:70px;
-  color:white;
-}
-
-.section-title span{
-  color:var(--primary);
-}
-
-/* ABOUT */
-
-.about-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-
-.about-card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.06);
-  padding:35px;
-  border-radius:28px;
-  transition:0.35s;
-  backdrop-filter:blur(10px);
-}
-
-.about-card:hover{
-  transform:translateY(-10px);
-  border-color:rgba(56,189,248,0.4);
-}
-
-.about-card h3{
-  color:var(--primary);
-  margin-bottom:18px;
-  font-size:24px;
-}
-
-.about-card p{
-  color:var(--light);
-  line-height:1.9;
-}
-
-/* SKILLS */
-
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-
-.skill-box{
-  background:linear-gradient(
-  135deg,
-  rgba(255,255,255,0.05),
-  rgba(255,255,255,0.03)
-  );
-
-  padding:35px;
-  border-radius:24px;
-  text-align:center;
-  transition:0.35s;
-  border:1px solid rgba(255,255,255,0.06);
-}
-
-.skill-box:hover{
-  transform:translateY(-8px);
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-}
-
-.skill-box h3{
-  font-size:22px;
-}
-
-/* PROJECTS */
-
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:30px;
-}
-
-.project-card{
-  overflow:hidden;
-  border-radius:30px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.06);
-  transition:0.35s;
-}
-
-.project-card:hover{
-  transform:translateY(-10px);
-}
-
-.project-image{
-  height:220px;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:60px;
-}
-
-.project-content{
-  padding:30px;
-}
-
-.project-content h3{
-  font-size:26px;
-  margin-bottom:15px;
-}
-
-.project-content p{
-  color:var(--light);
-  line-height:1.8;
-}
-
-/* HIRE */
-
-.hire-section{
-  text-align:center;
-}
-
-.hire-box{
-  max-width:1000px;
-  margin:auto;
-  padding:60px;
-  border-radius:36px;
-
-  background:linear-gradient(
-  135deg,
-  rgba(37,99,235,0.95),
-  rgba(56,189,248,0.9)
-  );
-
-  box-shadow:0 25px 60px rgba(56,189,248,0.2);
-}
-
-.hire-box h2{
-  font-size:42px;
-  margin-bottom:20px;
-}
-
-.hire-box p{
-  max-width:750px;
-  margin:auto;
-  line-height:1.9;
-  font-size:18px;
-  margin-bottom:20px;
-}
-
-.hire-btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:16px 36px;
-  background:white;
-  color:#2563eb;
-  border-radius:16px;
-  font-weight:700;
-  transition:0.35s;
-}
-
-.hire-btn:hover{
-  transform:translateY(-6px);
-}
-
-/* CONTACT */
-
-.contact-box{
-  max-width:750px;
-  margin:auto;
-  padding:50px;
-  border-radius:30px;
-  text-align:center;
-
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.06);
-}
-
-.contact-box p{
-  color:var(--light);
-  line-height:1.9;
-  margin-bottom:30px;
-}
-
-.email-btn{
-  display:inline-block;
-  padding:16px 35px;
-  border-radius:16px;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:white;
-  font-weight:700;
-  transition:0.35s;
-}
-
-.email-btn:hover{
-  transform:scale(1.05);
-}
-
-/* FOOTER */
-
-footer{
-  text-align:center;
-  padding:35px;
-  color:#94a3b8;
-  border-top:1px solid rgba(255,255,255,0.06);
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  nav{
-    padding:18px 5%;
-  }
-
-  nav ul{
-    gap:15px;
-    font-size:14px;
-  }
-
-  .hero{
-    text-align:center;
-    padding-top:140px;
-  }
-
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .hero-text h1{
-    font-size:50px;
-  }
-
-  .glass-circle{
-    width:280px;
-    height:280px;
-  }
-
-  .glass-circle h2{
-    font-size:72px;
-  }
-
-  .section-title{
-    font-size:36px;
-  }
-
-  .hire-box{
-    padding:40px 25px;
-  }
-
-  .hire-box h2{
-    font-size:30px;
-  }
-
-}
-
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Alan Jaison | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#0f172a;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        /* Scroll Bar */
+        ::-webkit-scrollbar{
+            width:8px;
+        }
+
+        ::-webkit-scrollbar-thumb{
+            background:#38bdf8;
+            border-radius:20px;
+        }
+
+        /* Header */
+        header{
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            padding:20px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:rgba(15,23,42,0.8);
+            backdrop-filter:blur(10px);
+            z-index:1000;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:700;
+            color:#38bdf8;
+            letter-spacing:1px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:25px;
+            font-size:16px;
+            transition:0.3s;
+            position:relative;
+        }
+
+        nav a::after{
+            content:'';
+            position:absolute;
+            width:0%;
+            height:2px;
+            background:#38bdf8;
+            left:0;
+            bottom:-5px;
+            transition:0.4s;
+        }
+
+        nav a:hover{
+            color:#38bdf8;
+        }
+
+        nav a:hover::after{
+            width:100%;
+        }
+
+        section{
+            min-height:100vh;
+            padding:120px 8% 60px;
+        }
+
+        /* Hero */
+        .hero{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:40px;
+        }
+
+        .hero-text{
+            flex:1;
+        }
+
+        .hero-text h1{
+            font-size:55px;
+            margin-bottom:10px;
+        }
+
+        .hero-text h1 span{
+            color:#38bdf8;
+        }
+
+        .hero-text h2{
+            font-size:28px;
+            font-weight:400;
+            margin-bottom:20px;
+            color:#cbd5e1;
+        }
+
+        .hero-text p{
+            font-size:17px;
+            line-height:1.8;
+            color:#d1d5db;
+            max-width:650px;
+        }
+
+        .hero-buttons{
+            margin-top:30px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:12px 28px;
+            background:#38bdf8;
+            color:#0f172a;
+            font-weight:600;
+            text-decoration:none;
+            border-radius:40px;
+            margin-right:15px;
+            transition:0.4s;
+            box-shadow:0 0 15px rgba(56,189,248,0.4);
+        }
+
+        .btn:hover{
+            transform:translateY(-5px) scale(1.05);
+            box-shadow:0 0 30px rgba(56,189,248,0.7);
+        }
+
+        /* Profile Card */
+        .profile-card{
+            width:320px;
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.1);
+            border-radius:25px;
+            padding:30px;
+            text-align:center;
+            transition:0.5s;
+            backdrop-filter:blur(15px);
+        }
+
+        .profile-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 0 30px rgba(56,189,248,0.4);
+        }
+
+        .profile-card img{
+            width:140px;
+            height:140px;
+            border-radius:50%;
+            object-fit:cover;
+            border:4px solid #38bdf8;
+            margin-bottom:20px;
+        }
+
+        .profile-card h3{
+            font-size:28px;
+            margin-bottom:10px;
+        }
+
+        .profile-card p{
+            color:#cbd5e1;
+        }
+
+        /* Section Titles */
+        .section-title{
+            font-size:40px;
+            margin-bottom:40px;
+            text-align:center;
+            color:#38bdf8;
+        }
+
+        /* Cards */
+        .card-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .card{
+            background:rgba(255,255,255,0.05);
+            padding:30px;
+            border-radius:20px;
+            transition:0.5s;
+            border:1px solid rgba(255,255,255,0.08);
+        }
+
+        .card:hover{
+            transform:translateY(-10px) scale(1.02);
+            box-shadow:0 0 25px rgba(56,189,248,0.35);
+        }
+
+        .card i{
+            font-size:40px;
+            color:#38bdf8;
+            margin-bottom:20px;
+        }
+
+        .card h3{
+            margin-bottom:15px;
+            font-size:24px;
+        }
+
+        .card p{
+            line-height:1.7;
+            color:#d1d5db;
+        }
+
+        /* Skills */
+        .skills{
+            display:flex;
+            flex-wrap:wrap;
+            gap:20px;
+            justify-content:center;
+        }
+
+        .skill{
+            padding:15px 25px;
+            background:rgba(56,189,248,0.1);
+            border:1px solid #38bdf8;
+            border-radius:50px;
+            transition:0.4s;
+            font-weight:500;
+        }
+
+        .skill:hover{
+            background:#38bdf8;
+            color:#0f172a;
+            transform:scale(1.1);
+            cursor:pointer;
+        }
+
+        /* Contact */
+        .contact-box{
+            max-width:700px;
+            margin:auto;
+            text-align:center;
+            background:rgba(255,255,255,0.05);
+            padding:40px;
+            border-radius:25px;
+            border:1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-box i{
+            font-size:45px;
+            color:#38bdf8;
+            margin-bottom:20px;
+        }
+
+        .contact-box a{
+            color:white;
+            text-decoration:none;
+            font-size:20px;
+            transition:0.3s;
+        }
+
+        .contact-box a:hover{
+            color:#38bdf8;
+        }
+
+        footer{
+            text-align:center;
+            padding:20px;
+            color:#94a3b8;
+            background:#020617;
+        }
+
+        /* Responsive */
+        @media(max-width:900px){
+            .hero{
+                flex-direction:column-reverse;
+                text-align:center;
+            }
+
+            .hero-text h1{
+                font-size:42px;
+            }
+
+            nav{
+                display:none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+    <!-- Header -->
+    <header>
+        <div class="logo">Alan Jaison</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#education">Education</a>
+            <a href="#interests">Interests</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home -->
+    <section id="home">
+        <div class="hero">
 
-<nav>
+            <div class="hero-text">
+                <h1>Hello, I'm <span>Alan Jaison</span></h1>
+                <h2>App Developer & Tech Enthusiast</h2>
 
-<div class="logo">Alan.</div>
+                <p>
+                    Passionate about app development, programming, and creating modern digital experiences.
+                    I enjoy building useful applications and learning new technologies.
+                    I love experimenting with Java, HTML, Python, and MATLAB to develop creative and functional projects.
+                </p>
 
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#hire">Hire Me</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Contact Me</a>
+                    <a href="#skills" class="btn">My Skills</a>
+                </div>
+            </div>
 
-</nav>
+            <div class="profile-card">
 
-<!-- HERO -->
+                <!-- Copyright Free Image -->
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop" alt="Profile">
 
-<section class="hero" id="home">
+                <h3>Alan Jaison</h3>
+                <p>BSc Physics Student</p>
+            </div>
 
-<div class="hero-text">
+        </div>
+    </section>
 
-<div class="hero-tag">
-Creative Developer • UI Designer • Android Developer
-</div>
+    <!-- Education -->
+    <section id="education">
 
-<h1>
-Building <span>Modern Digital</span><br>
-Experiences
-</h1>
+        <h2 class="section-title">Education</h2>
 
-<p>
-I design and develop modern websites, Android applications,
-creative games and digital experiences with clean UI,
-smooth performance and professional aesthetics.
-Focused on creativity, productivity and innovation.
-</p>
+        <div class="card-container">
 
-<div class="hero-buttons">
+            <div class="card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>BSc Physics</h3>
+                <p>
+                    Pursuing Bachelor of Science in Physics with strong interest in technology,
+                    programming, and application development.
+                </p>
+            </div>
 
-<a href="#contact" class="btn primary-btn">
-Let's Work Together
-</a>
+        </div>
 
-<a href="#projects" class="btn secondary-btn">
-View Projects
-</a>
+    </section>
 
-</div>
+    <!-- Interests -->
+    <section id="interests">
 
-<div class="stats">
+        <h2 class="section-title">Interests</h2>
 
-<div class="stat-card">
-<h2>10+</h2>
-<p>Projects Built</p>
-</div>
+        <div class="card-container">
 
-<div class="stat-card">
-<h2>5+</h2>
-<p>Technologies</p>
-</div>
+            <div class="card">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <h3>App Development</h3>
+                <p>
+                    Building Android apps and experimenting with UI/UX design and creative app ideas.
+                </p>
+            </div>
 
-<div class="stat-card">
-<h2>100%</h2>
-<p>Creative Focus</p>
-</div>
+            <div class="card">
+                <i class="fa-solid fa-code"></i>
+                <h3>Programming</h3>
+                <p>
+                    Exploring modern programming technologies and creating interactive digital solutions.
+                </p>
+            </div>
 
-</div>
+            <div class="card">
+                <i class="fa-solid fa-lightbulb"></i>
+                <h3>Innovation</h3>
+                <p>
+                    Interested in creating unique and user-friendly experiences through technology.
+                </p>
+            </div>
 
-</div>
+        </div>
 
-<div class="hero-image">
+    </section>
 
-<div class="glass-circle">
-<h2>AJ</h2>
-</div>
+    <!-- Skills -->
+    <section id="skills">
 
-</div>
+        <h2 class="section-title">Knowledge & Skills</h2>
 
-</section>
+        <div class="skills">
 
-<!-- ABOUT -->
+            <div class="skill">Java</div>
+            <div class="skill">HTML</div>
+            <div class="skill">Python</div>
+            <div class="skill">MATLAB</div>
+            <div class="skill">Android Development</div>
+            <div class="skill">UI Design</div>
 
-<section id="about">
+        </div>
 
-<h2 class="section-title">
-About <span>Me</span>
-</h2>
+    </section>
 
-<div class="about-grid">
+    <!-- Contact -->
+    <section id="contact">
 
-<div class="about-card">
+        <h2 class="section-title">Contact Me</h2>
 
-<h3>Who I Am</h3>
+        <div class="contact-box">
 
-<p>
-I am a passionate creative developer focused on building
-modern, elegant and productive digital experiences.
-I enjoy transforming ideas into professional applications,
-websites and interactive products.
-</p>
+            <i class="fa-solid fa-envelope"></i>
 
-</div>
+            <p style="margin-bottom:20px; color:#cbd5e1;">
+                Feel free to contact me for collaborations or projects.
+            </p>
 
-<div class="about-card">
+            <a href="mailto:alanjaison8112004@gmail.com">
+                alanjaison8112004@gmail.com
+            </a>
 
-<h3>Qualification</h3>
+        </div>
 
-<p>
-Currently pursuing graduation while actively developing
-Android applications, modern websites and software projects.
-Skilled in front-end development, UI/UX design and app creation.
-</p>
+    </section>
 
-</div>
-
-<div class="about-card">
-
-<h3>Interests</h3>
-
-<p>
-Passionate about game development, app creation,
-website design, productivity systems, creative coding,
-animations and modern technology innovations.
-</p>
-
-</div>
-
-<div class="about-card">
-
-<h3>Mission</h3>
-
-<p>
-My mission is to build impactful digital products
-with modern design, optimized performance and
-high-quality user experiences that create real value.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-<h2 class="section-title">
-My <span>Skills</span>
-</h2>
-
-<div class="skills-grid">
-
-<div class="skill-box">
-<h3>HTML5</h3>
-</div>
-
-<div class="skill-box">
-<h3>CSS3</h3>
-</div>
-
-<div class="skill-box">
-<h3>JavaScript</h3>
-</div>
-
-<div class="skill-box">
-<h3>Android Development</h3>
-</div>
-
-<div class="skill-box">
-<h3>UI/UX Design</h3>
-</div>
-
-<div class="skill-box">
-<h3>Sketchware</h3>
-</div>
-
-<div class="skill-box">
-<h3>Responsive Design</h3>
-</div>
-
-<div class="skill-box">
-<h3>Creative Coding</h3>
-</div>
-
-</div>
-
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-<h2 class="section-title">
-Featured <span>Projects</span>
-</h2>
-
-<div class="projects-grid">
-
-<div class="project-card">
-
-<div class="project-image">
-🎮
-</div>
-
-<div class="project-content">
-
-<h3>Fruit Slice Game</h3>
-
-<p>
-An interactive mobile slicing game featuring smooth
-animations, creative visual effects and engaging gameplay
-optimized for Android devices.
-</p>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<div class="project-image">
-💻
-</div>
-
-<div class="project-content">
-
-<h3>Portfolio Website</h3>
-
-<p>
-A modern and responsive portfolio website designed with
-professional UI, elegant animations and optimized performance.
-</p>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<div class="project-image">
-📱
-</div>
-
-<div class="project-content">
-
-<h3>Android Applications</h3>
-
-<p>
-Developing productivity tools, creative utilities and
-optimized Android applications with modern design principles.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- HIRE -->
-
-<section class="hire-section" id="hire">
-
-<h2 class="section-title">
-Hire <span>Me</span>
-</h2>
-
-<div class="hire-box">
-
-<h2>
-Need a Modern Website or Android App?
-</h2>
-
-<p>
-Available for freelance projects, website development,
-Android app creation, UI/UX design, portfolio websites,
-creative digital products and productivity applications.
-</p>
-
-<p>
-Let's build something modern, innovative and impactful together.
-</p>
-
-<a href="mailto:alanjaison8112004@gmail.com" class="hire-btn">
-Start a Project
-</a>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2 class="section-title">
-Get In <span>Touch</span>
-</h2>
-
-<div class="contact-box">
-
-<p>
-Interested in collaborating, building a project or discussing
-creative ideas? Feel free to contact me through email.
-</p>
-
-<a href="mailto:alanjaison8112004@gmail.com" class="email-btn">
-alanjaison8112004@gmail.com
-</a>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-© 2026 Alan Jaison • Designed & Developed with Passion
-</footer>
+    <!-- Footer -->
+    <footer>
+        © 2026 Alan Jaison | All Rights Reserved
+    </footer>
 
 </body>
 </html>
