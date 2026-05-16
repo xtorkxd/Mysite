@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
     <style>
+
         *{
             margin:0;
             padding:0;
@@ -27,6 +28,7 @@
         }
 
         /* Scroll Bar */
+
         ::-webkit-scrollbar{
             width:8px;
         }
@@ -37,6 +39,7 @@
         }
 
         /* Header */
+
         header{
             width:100%;
             position:fixed;
@@ -46,7 +49,7 @@
             display:flex;
             justify-content:space-between;
             align-items:center;
-            background:rgba(15,23,42,0.8);
+            background:rgba(15,23,42,0.85);
             backdrop-filter:blur(10px);
             z-index:1000;
         }
@@ -63,8 +66,8 @@
             text-decoration:none;
             margin-left:25px;
             font-size:16px;
-            transition:0.3s;
             position:relative;
+            transition:0.3s;
         }
 
         nav a::after{
@@ -91,7 +94,8 @@
             padding:120px 8% 60px;
         }
 
-        /* Hero */
+        /* Hero Section */
+
         .hero{
             display:flex;
             justify-content:space-between;
@@ -105,7 +109,7 @@
         }
 
         .hero-text h1{
-            font-size:55px;
+            font-size:58px;
             margin-bottom:10px;
         }
 
@@ -115,16 +119,16 @@
 
         .hero-text h2{
             font-size:28px;
+            color:#cbd5e1;
             font-weight:400;
             margin-bottom:20px;
-            color:#cbd5e1;
         }
 
         .hero-text p{
+            max-width:650px;
             font-size:17px;
             line-height:1.8;
             color:#d1d5db;
-            max-width:650px;
         }
 
         .hero-buttons{
@@ -133,46 +137,62 @@
 
         .btn{
             display:inline-block;
-            padding:12px 28px;
+            padding:13px 28px;
+            margin-right:15px;
+            border-radius:40px;
             background:#38bdf8;
             color:#0f172a;
             font-weight:600;
             text-decoration:none;
-            border-radius:40px;
-            margin-right:15px;
             transition:0.4s;
-            box-shadow:0 0 15px rgba(56,189,248,0.4);
+            box-shadow:0 0 20px rgba(56,189,248,0.4);
         }
 
         .btn:hover{
             transform:translateY(-5px) scale(1.05);
-            box-shadow:0 0 30px rgba(56,189,248,0.7);
+            box-shadow:0 0 35px rgba(56,189,248,0.8);
         }
 
         /* Profile Card */
+
         .profile-card{
             width:320px;
             background:rgba(255,255,255,0.05);
             border:1px solid rgba(255,255,255,0.1);
             border-radius:25px;
-            padding:30px;
+            padding:35px;
             text-align:center;
-            transition:0.5s;
             backdrop-filter:blur(15px);
+            transition:0.5s;
         }
 
         .profile-card:hover{
             transform:translateY(-10px);
-            box-shadow:0 0 30px rgba(56,189,248,0.4);
+            box-shadow:0 0 35px rgba(56,189,248,0.4);
         }
 
-        .profile-card img{
+        /* AJ Logo */
+
+        .aj-logo{
             width:140px;
             height:140px;
             border-radius:50%;
-            object-fit:cover;
+            background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin:0 auto 20px;
+            font-size:52px;
+            font-weight:700;
+            color:white;
             border:4px solid #38bdf8;
-            margin-bottom:20px;
+            box-shadow:0 0 25px rgba(56,189,248,0.5);
+            transition:0.5s;
+        }
+
+        .aj-logo:hover{
+            transform:scale(1.08) rotate(5deg);
+            box-shadow:0 0 45px rgba(56,189,248,0.8);
         }
 
         .profile-card h3{
@@ -184,15 +204,17 @@
             color:#cbd5e1;
         }
 
-        /* Section Titles */
+        /* Section Title */
+
         .section-title{
-            font-size:40px;
-            margin-bottom:40px;
             text-align:center;
+            font-size:42px;
             color:#38bdf8;
+            margin-bottom:50px;
         }
 
         /* Cards */
+
         .card-container{
             display:grid;
             grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -203,24 +225,24 @@
             background:rgba(255,255,255,0.05);
             padding:30px;
             border-radius:20px;
-            transition:0.5s;
             border:1px solid rgba(255,255,255,0.08);
+            transition:0.5s;
         }
 
         .card:hover{
             transform:translateY(-10px) scale(1.02);
-            box-shadow:0 0 25px rgba(56,189,248,0.35);
+            box-shadow:0 0 30px rgba(56,189,248,0.35);
         }
 
         .card i{
-            font-size:40px;
+            font-size:42px;
             color:#38bdf8;
             margin-bottom:20px;
         }
 
         .card h3{
-            margin-bottom:15px;
             font-size:24px;
+            margin-bottom:15px;
         }
 
         .card p{
@@ -229,6 +251,7 @@
         }
 
         /* Skills */
+
         .skills{
             display:flex;
             flex-wrap:wrap;
@@ -237,10 +260,10 @@
         }
 
         .skill{
-            padding:15px 25px;
-            background:rgba(56,189,248,0.1);
-            border:1px solid #38bdf8;
+            padding:15px 28px;
             border-radius:50px;
+            border:1px solid #38bdf8;
+            background:rgba(56,189,248,0.1);
             transition:0.4s;
             font-weight:500;
         }
@@ -250,23 +273,31 @@
             color:#0f172a;
             transform:scale(1.1);
             cursor:pointer;
+            box-shadow:0 0 20px rgba(56,189,248,0.6);
         }
 
         /* Contact */
+
         .contact-box{
             max-width:700px;
             margin:auto;
             text-align:center;
             background:rgba(255,255,255,0.05);
-            padding:40px;
             border-radius:25px;
+            padding:40px;
             border:1px solid rgba(255,255,255,0.1);
         }
 
         .contact-box i{
-            font-size:45px;
+            font-size:50px;
             color:#38bdf8;
             margin-bottom:20px;
+        }
+
+        .contact-box p{
+            color:#d1d5db;
+            margin-bottom:20px;
+            line-height:1.7;
         }
 
         .contact-box a{
@@ -280,15 +311,19 @@
             color:#38bdf8;
         }
 
+        /* Footer */
+
         footer{
+            background:#020617;
             text-align:center;
             padding:20px;
             color:#94a3b8;
-            background:#020617;
         }
 
         /* Responsive */
+
         @media(max-width:900px){
+
             .hero{
                 flex-direction:column-reverse;
                 text-align:center;
@@ -301,14 +336,19 @@
             nav{
                 display:none;
             }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
     <!-- Header -->
+
     <header>
+
         <div class="logo">Alan Jaison</div>
 
         <nav>
@@ -318,14 +358,19 @@
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </nav>
+
     </header>
 
     <!-- Home -->
+
     <section id="home">
+
         <div class="hero">
 
             <div class="hero-text">
+
                 <h1>Hello, I'm <span>Alan Jaison</span></h1>
+
                 <h2>App Developer & Tech Enthusiast</h2>
 
                 <p>
@@ -335,24 +380,31 @@
                 </p>
 
                 <div class="hero-buttons">
+
                     <a href="#contact" class="btn">Contact Me</a>
+
                     <a href="#skills" class="btn">My Skills</a>
+
                 </div>
+
             </div>
 
             <div class="profile-card">
 
-                <!-- Copyright Free Image -->
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop" alt="Profile">
+                <div class="aj-logo">AJ</div>
 
                 <h3>Alan Jaison</h3>
+
                 <p>BSc Physics Student</p>
+
             </div>
 
         </div>
+
     </section>
 
     <!-- Education -->
+
     <section id="education">
 
         <h2 class="section-title">Education</h2>
@@ -360,12 +412,16 @@
         <div class="card-container">
 
             <div class="card">
+
                 <i class="fa-solid fa-graduation-cap"></i>
+
                 <h3>BSc Physics</h3>
+
                 <p>
                     Pursuing Bachelor of Science in Physics with strong interest in technology,
                     programming, and application development.
                 </p>
+
             </div>
 
         </div>
@@ -373,6 +429,7 @@
     </section>
 
     <!-- Interests -->
+
     <section id="interests">
 
         <h2 class="section-title">Interests</h2>
@@ -380,27 +437,39 @@
         <div class="card-container">
 
             <div class="card">
+
                 <i class="fa-solid fa-mobile-screen-button"></i>
+
                 <h3>App Development</h3>
+
                 <p>
                     Building Android apps and experimenting with UI/UX design and creative app ideas.
                 </p>
+
             </div>
 
             <div class="card">
+
                 <i class="fa-solid fa-code"></i>
+
                 <h3>Programming</h3>
+
                 <p>
                     Exploring modern programming technologies and creating interactive digital solutions.
                 </p>
+
             </div>
 
             <div class="card">
+
                 <i class="fa-solid fa-lightbulb"></i>
+
                 <h3>Innovation</h3>
+
                 <p>
                     Interested in creating unique and user-friendly experiences through technology.
                 </p>
+
             </div>
 
         </div>
@@ -408,6 +477,7 @@
     </section>
 
     <!-- Skills -->
+
     <section id="skills">
 
         <h2 class="section-title">Knowledge & Skills</h2>
@@ -415,10 +485,15 @@
         <div class="skills">
 
             <div class="skill">Java</div>
+
             <div class="skill">HTML</div>
+
             <div class="skill">Python</div>
+
             <div class="skill">MATLAB</div>
+
             <div class="skill">Android Development</div>
+
             <div class="skill">UI Design</div>
 
         </div>
@@ -426,6 +501,7 @@
     </section>
 
     <!-- Contact -->
+
     <section id="contact">
 
         <h2 class="section-title">Contact Me</h2>
@@ -434,8 +510,9 @@
 
             <i class="fa-solid fa-envelope"></i>
 
-            <p style="margin-bottom:20px; color:#cbd5e1;">
-                Feel free to contact me for collaborations or projects.
+            <p>
+                Feel free to contact me for collaborations, projects,
+                or freelance opportunities.
             </p>
 
             <a href="mailto:alanjaison8112004@gmail.com">
@@ -447,8 +524,11 @@
     </section>
 
     <!-- Footer -->
+
     <footer>
+
         © 2026 Alan Jaison | All Rights Reserved
+
     </footer>
 
 </body>
